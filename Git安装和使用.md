@@ -693,7 +693,45 @@ git clone username@host:/path/to/repository
      git push -u origin master
      ```
 
-   - 这会将您的本地 `master` 分支推送到远程仓库的 `master` 分支。如果您的远程仓库使用不同的默认分支，请相应地更改分支名称。(注意origin和master都是默认名称,origin是默认仓库名称,master是默认主枝名称,注意检查**origin**被默认写成了**upstream**,**master**可能被写成了**main**!!!)
+   - 这会将您的本地 `master` 分支推送到远程仓库的 `master` 分支。如果您的远程仓库使用不同的默认分支，请相应地更改分支名称。(注意origin和master都是默认名称,origin是默认仓库名称,master是默认主枝名称,注意检查**origin**被默认写成了**upstream**,**master**可能被写成了**main**!!!)这样的话就是
+
+   - ```
+     git push -u upstream main
+     ```
+
+     可以通过以下指令查看分支和远程仓库
+
+     ```
+     git branch
+     ```
+
+     ```
+     git remote -v
+     ```
+
+     以下指令修改仓库名
+
+     ```
+     git remote rename upstream origin
+     ```
+
+     以下指令修改分支名称
+
+     ### 修改本地分支名称
+
+     1. **切换到要重命名的分支**： 先切换到你想要重命名的分支。例如，如果当前在 `main` 分支上且想重命名它：
+
+        ```
+        
+        git checkout main
+        ```
+
+     2. **重命名本地分支**： 使用 `git branch -m` 命令来重命名分支。例如，将 `main` 重命名为 `master`：
+
+        ```
+        
+        git branch -m master
+        ```
 
    - 当你推送到远程仓库时，如果远程仓库不存在该分支，Git 会在远程仓库中创建一个新的分支。如果你推送的是 `master` 分支，并且远程仓库中还没有 `master` 分支，那么这个操作将创建一个 `master` 分支并推送你的提交。
 
