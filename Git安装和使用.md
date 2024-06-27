@@ -629,3 +629,82 @@ git clone username@host:/path/to/repository
 `git config format.pretty oneline`
 交互式添加文件到暂存区：
 `git add -i`
+
+### 完整流程
+
+要通过 HTTPS 将本地项目上传到 GitHub，您可以按照以下步骤操作：
+
+1. **创建仓库**：
+
+   - 首先，确保您已经在 GitHub 上创建了一个新的仓库。根据您提供的链接，看起来 `VegetableBird001/Java-Notes` 已经存在，但如果您想上传到自己的仓库，您需要创建一个新的仓库。
+
+2. **克隆仓库**（如果需要）：
+
+   - 如果您是仓库的协作者，并且想要克隆现有的仓库到本地，可以使用以下命令：
+
+     ```
+     git clone https://github.com/VegetableBird001/Java-Notes.git
+     ```
+
+   - 这会将远程仓库克隆到您的本地机器。
+
+3. **初始化 Git 仓库**（如果尚未初始化）：
+
+   - 如果您的项目目录不是一个 Git 仓库，您需要初始化它：
+
+     ```
+     cd D:\备份文件\typora_note
+     git init
+     ```
+
+4. **添加远程仓库**：
+
+   - 添加您在 GitHub 上创建的仓库作为远程仓库：
+
+     ```
+     git remote add origin https://github.com/您的GitHub用户名/Java-Notes.git
+     ```
+
+   - 请将 `"您的GitHub用户名"` 替换为您的 GitHub 用户名。
+
+5. **添加文件到仓库**：
+
+   - 将文件添加到暂存区：
+
+     ```
+     git add .
+     ```
+
+6. **提交更改**：
+
+   - 提交您的更改到本地仓库：
+
+     ```
+     git commit -m "您的提交信息"
+     ```
+
+   - 请将 `"您的提交信息"` 替换为您想要的提交信息。
+
+7. **推送到远程仓库**：
+
+   - 将您的更改推送到 GitHub：
+
+     ```
+     git push -u origin master
+     ```
+
+   - 这会将您的本地 `master` 分支推送到远程仓库的 `master` 分支。如果您的远程仓库使用不同的默认分支，请相应地更改分支名称。(注意origin和master都是默认名称,origin是默认仓库名称,master是默认主枝名称,注意检查**origin**被默认写成了**upstream**,**master**可能被写成了**main**!!!)
+
+   - 当你推送到远程仓库时，如果远程仓库不存在该分支，Git 会在远程仓库中创建一个新的分支。如果你推送的是 `master` 分支，并且远程仓库中还没有 `master` 分支，那么这个操作将创建一个 `master` 分支并推送你的提交。
+
+     
+
+8. **输入 GitHub 凭据**：
+
+   - 第一次推送时，GitHub 会要求您输入用户名和密码或使用个人访问令牌（Personal Access Token，PAT）。
+
+9. **检查 GitHub 仓库**：
+
+   - 推送完成后，检查 GitHub 仓库以确认您的更改已经上传。
+
+请注意，如果您不是 `VegetableBird001/Java-Notes` 仓库的所有者或协作者，您将无法直接推送到该仓库。您需要 fork 该仓库，然后推送到您自己的 fork 中，或者创建您自己的仓库并按照上述步骤操作。
